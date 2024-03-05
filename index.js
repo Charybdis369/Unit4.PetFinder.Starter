@@ -6,9 +6,15 @@ const morgan = require('morgan')
 // init express app
 const express = require('express');
 const app = express();
+const PORT = 8080;
+
 app.use(morgan('dev'))
 
-const PORT = 8080;
+app.use(express.urlencoded({extended: false}))
+
+app.use(express.json())
+
+
 
 // GET - / - returns homepage
 app.get('/', (req, res) => {
